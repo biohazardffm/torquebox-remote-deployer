@@ -86,9 +86,10 @@ module TorqueBox
       end
 
       def do_deploy(config, app_name)
+        #  root: #{config.jboss_home}/standalone/deployments/#{app_name}.knob
         knob_yml = <<-YAML
         application:
-          root: #{config.jboss_home}/standalone/deployments/#{app_name}.knob
+          root: #{config.torquebox_home}/stage/#{app_name}
         environment:
           RACK_ENV: #{config.rack_env}
           RAILS_ENV: #{config.rack_env}
